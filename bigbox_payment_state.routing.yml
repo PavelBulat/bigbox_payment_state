@@ -1,0 +1,27 @@
+site_status_message.change_state:
+    path: '/admin/change_state_site_status_message'
+    defaults:
+        _controller: '\Drupal\bigbox_payment_state\ChangeVisibilityMessage::changeVisibility'
+    methods:  [POST]
+    requirements:
+        _permission: 'access administration pages'
+
+site_status.change_status:
+    path: '/admin/change_site_status'
+    defaults:
+        _controller: '\Drupal\bigbox_payment_state\SiteStatusController::changeSiteStatus'
+    methods:  [POST]
+    options:
+        no_cache: TRUE
+    requirements:
+        _access: 'TRUE'
+
+site_status.change_status:
+    path: '/admin/get_site_status'
+    defaults:
+        _controller: '\Drupal\bigbox_payment_state\SiteStatusController::getSiteStatus'
+    methods:  [GET]
+    options:
+        no_cache: TRUE
+    requirements:
+        _access: 'TRUE'

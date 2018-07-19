@@ -1,0 +1,6 @@
+name: 'Bigbox Payment State'
+type: module
+description: 'Модуль выводит состояние оплаты на dashboard, меняет состояние оплаты, блокирует сайт.'
+core: 8.x
+package: 'Bigbox'
+

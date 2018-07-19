@@ -1,0 +1,6 @@
+alert_site_status_library:
+  css:
+    theme:
+      css/alert_site_status.css: {}
+  js:
+    js/alert_site_status.js: {}
