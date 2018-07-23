@@ -1,6 +1,5 @@
 {
   "name": "drupal/bigbox_payment_state",
-  "type": "drupal-module",
   "description": "Модуль выводит состояние оплаты на dashboard, меняет состояние оплаты, блокирует сайт.",
   "minimum-stability": "dev",
   "type": "drupal-module",
