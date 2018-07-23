@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "libricons";
+  src: url("fonts/libricons.woff2") format("woff2"), url("fonts/libricons.woff") format("woff"), url("fonts/libricons.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .bigbox-alert-site-status {
   position: fixed;
   display: flex;

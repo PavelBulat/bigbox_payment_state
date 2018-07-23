@@ -4,3 +4,7 @@ alert_site_status_library:
       css/alert_site_status.css: {}
   js:
     js/alert_site_status.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal.ajax
