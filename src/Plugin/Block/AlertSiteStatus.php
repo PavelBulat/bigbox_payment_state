@@ -59,7 +59,7 @@ class AlertSiteStatus extends BlockBase {
     $vars['background'] = $background;
     $vars['message'] = $message;
     $vars['open'] = $visible;
-    $vars['payment_url'] = \Drupal::config('bigbox_payment_state.settings')->get('redirect_url') . '?site=' . \Drupal::state()->get('bigbox_domain') . '&status-site=' . $site_status . '&trial-site=' . $site_trial;
+    $vars['payment_url'] = \Drupal::config('bigbox_payment_state.settings')->get('redirect_url') . '?site=' . \Drupal::state()->get('bigbox_domain') . '&status' . $site_status . '&trial' . $site_trial;
     
     $build = [];
     $build['#theme'] = 'alert_site_status';

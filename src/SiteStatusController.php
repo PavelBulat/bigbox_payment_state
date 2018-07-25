@@ -31,7 +31,7 @@ class SiteStatusController extends ControllerBase {
     $trial = \Drupal::state()->get('bigbox_trial');
     $time = \Drupal::state()->get('bigbox_time_close_site');
     $status = \Drupal::state()->get('bigbox_site_active');
-    $redirect_url = \Drupal::config('bigbox_payment_state.settings')->get('redirect_url') . '?site=' . \Drupal::state()->get('bigbox_domain') . '&status-site=' . $status . '&trial-site=' . $trial;
+    $redirect_url = \Drupal::config('bigbox_payment_state.settings')->get('redirect_url') . '?site=' . \Drupal::state()->get('bigbox_domain') . '&status=' . $status . '&trial=' . $trial;
     
     $admin = \Drupal::currentUser()->isAuthenticated();
   
