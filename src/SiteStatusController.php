@@ -13,7 +13,7 @@ class SiteStatusController extends ControllerBase {
   
   public function changeSiteStatus(){
     // TODO: обеспечить защиту, что бы нельзя было изменять время работы сайта кому попало.
-    $data = \GuzzleHttp\json_decode(\Drupal::request()->getContent());
+    $data = json_decode(\Drupal::request()->getContent());
     if ($data->work_time) {
       if (time() < (int) $data->work_time){
         \Drupal::state()->set('bigbox_trial', FALSE);
@@ -31,7 +31,7 @@ class SiteStatusController extends ControllerBase {
     $trial = \Drupal::state()->get('bigbox_trial');
     $time = \Drupal::state()->get('bigbox_time_close_site');
     $status = \Drupal::state()->get('bigbox_site_active');
-    $redirect_url = \Drupal::config('bigbox_payment_state.settings')->get('redirect_url') . \Drupal::state()->get('bigbox_domain');
+    $redirect_url = \Drupal::config('bigbox_payment_state.settings')->get('redirect_url') . '?site=' . \Drupal::state()->get('bigbox_domain') . '&status=' . $status . '&trial=' . $trial;
     
     $admin = \Drupal::currentUser()->isAuthenticated();
   
