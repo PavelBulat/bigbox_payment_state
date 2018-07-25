@@ -3,6 +3,6 @@
   "description": "Модуль выводит состояние оплаты на dashboard, меняет состояние оплаты, блокирует сайт.",
   "minimum-stability": "dev",
   "type": "drupal-module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "require": { }
 }
