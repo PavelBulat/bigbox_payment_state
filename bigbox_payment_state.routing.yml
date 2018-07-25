@@ -16,7 +16,7 @@ site_status.change_status:
     requirements:
         _access: 'TRUE'
 
-site_status.change_status:
+site_status.get_status:
     path: '/admin/get_site_status'
     defaults:
         _controller: '\Drupal\bigbox_payment_state\SiteStatusController::getSiteStatus'
