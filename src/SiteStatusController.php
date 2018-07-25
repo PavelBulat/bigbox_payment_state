@@ -13,10 +13,11 @@ class SiteStatusController extends ControllerBase {
   
   public function changeSiteStatus(){
     // TODO: обеспечить защиту, что бы нельзя было изменять время работы сайта кому попало.
-    if ($_POST['work_time']) {
-      if (time() < (int) $_POST['work_time']){
+    $data = \GuzzleHttp\json_decode(\Drupal::request()->getContent());
+    if ($data->work_time) {
+      if (time() < (int) $data->work_time){
         \Drupal::state()->set('bigbox_trial', FALSE);
-        \Drupal::state()->set('bigbox_time_close_site', (int) $_POST['work_time']);
+        \Drupal::state()->set('bigbox_time_close_site', (int) $data->work_time);
         \Drupal::state()->set('bigbox_site_active', TRUE);
   
         return new JsonResponse(json_encode(["success" => [ "work_time" => \Drupal::state()->get('bigbox_time_close_site')]]));
