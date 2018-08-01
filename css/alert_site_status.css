@@ -15,6 +15,7 @@
   padding: 5px 10px;
   border-top: solid 1px #333;
   font-size: 17px;
+  color: white;
 }
 
 .bigbox-alert-site-status.hide {
@@ -32,7 +33,7 @@
   height: 40px;
   right: 25px;
   border-radius: 50%;
-  border: solid 1px;
+  border: none;
   cursor: pointer;
 }
 
@@ -49,7 +50,7 @@
   right: 0;
   left: 12px;
   background-color: transparent;
-  color: #696969;
+  color: white;
 }
 
 .wrap-bigbox-alert-status .alert-open:before {

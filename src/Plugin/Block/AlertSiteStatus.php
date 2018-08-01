@@ -24,7 +24,7 @@ class AlertSiteStatus extends BlockBase {
     $site_trial = \Drupal::state()->get('bigbox_trial');
     $visible = \Drupal::state()->get('bigbox_alert_visible');
     $background = 'standart';
-    
+    $button_title = 'Оплатить';
     $message = '';
     
     // Истекает время оплаты.
@@ -34,28 +34,31 @@ class AlertSiteStatus extends BlockBase {
     
     // Пробная версия. Время ещё не вышло.
     if ($site_trial && $site_status) {
-      $message = 'Пробная версия сайта до ' . date('d-m-Y', $site_expired) . '. Перейдите на платный тариф оплатив сайт.';
+      $message = 'Тестовый период заканчивается ' . date('d-m-Y', $site_expired) . '.';
     }
   
     // Пробная версия. Время истекло.
     if ($site_trial && !$site_status) {
-      $message = 'Пробная версия сайта окончена. Перейдите на платный тариф оплатив сайт.';
+      $message = 'Тестовый период завершён.';
       $background = 'close';
       $visible = TRUE;
     }
   
     // Сайт оплачен. Время не истекло.
     if (!$site_trial && $site_status) {
-      $message = 'Сайт оплачен до ' . date('d-m-Y', $site_expired) . '. Вы можете продлить время работы сайта, оплатив его.';
+      $message = 'Сайт оплачен до ' . date('d-m-Y', $site_expired) . '.';
+      $button_title = 'Продлить';
     }
   
     // Время оплаты на платном тарифе истекло.
     if (!$site_trial && !$site_status) {
-      $message = 'Сайт заблокирован. Требуется оплатить сайт.';
+      $message = 'Оплаченный период завершён. Сайт заблокирован.';
       $background = 'close';
+      $button_title = 'Продлить';
       $visible = TRUE;
     }
-    
+
+    $vars['button_title'] = $button_title;
     $vars['background'] = $background;
     $vars['message'] = $message;
     $vars['open'] = $visible;

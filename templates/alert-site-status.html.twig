@@ -2,7 +2,7 @@
 <div class="wrap-bigbox-alert-status">
   <div id="alert-message" class="bigbox-alert-site-status bigbox-alert-site-status-{{vars.background}} {% if vars.open %}visible{% else %}hide{% endif %}">
     <div>{{vars.message}}</div>
-    <div><a class="button-payment" href="{{vars.payment_url}}" target="_blank">Оплатить</a></div>
+    <div><a class="button-payment" href="{{vars.payment_url}}" target="_blank">{{vars.button_title}}</a></div>
   </div>
   <div id="show-alert" class="alert-{% if vars.open %}close{% else %}open{% endif %} bigbox-alert-site-status-{{vars.background}}"/>
 </div>
