@@ -15,13 +15,10 @@ class SiteStatusController extends ControllerBase {
     // TODO: обеспечить защиту, что бы нельзя было изменять время работы сайта кому попало.
     $data = json_decode(\Drupal::request()->getContent(), TRUE);
     if ($data['work_time']) {
-      if (time() < (int) $data['work_time']){
-        \Drupal::state()->set('bigbox_trial', FALSE);
-        \Drupal::state()->set('bigbox_time_close_site', (int) $data['work_time']);
-        \Drupal::state()->set('bigbox_site_active', TRUE);
-  
-        return new JsonResponse(json_encode(["success" => [ "work_time" => \Drupal::state()->get('bigbox_time_close_site')]]));
-      }
+      \Drupal::state()->set('bigbox_time_close_site', (int) $data['work_time']);
+      \Drupal::state()->set('bigbox_site_active', time() < (int) $data['work_time']);          
+      \Drupal::state()->set('bigbox_trial', $data['trial']);
+      return new JsonResponse(json_encode(["success" => [ "work_time" => \Drupal::state()->get('bigbox_time_close_site')]]));
     }
   
     return new JsonResponse(json_encode(["error" => 'Время выключения сайта не установлено']));
